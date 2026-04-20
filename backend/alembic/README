@@ -1,0 +1,21 @@
+Dark Pool Tracker — Alembic migration environment.
+
+Common commands (run from the backend/ directory):
+
+  Apply all pending migrations:
+    alembic upgrade head
+
+  Roll back one step:
+    alembic downgrade -1
+
+  Auto-generate a new migration after editing models.py:
+    alembic revision --autogenerate -m "short description"
+
+  Show current revision in the DB:
+    alembic current
+
+  Show full migration history:
+    alembic history --verbose
+
+  Emit SQL without touching the DB (useful for review):
+    alembic upgrade head --sql

@@ -1,0 +1,191 @@
+
+> darkpool-tracker-frontend@0.1.0 dev
+> vite
+
+
+  [32m[1mVITE[22m v5.4.21[39m  [2mready in [0m[1m837[22m[2m[0m ms[22m
+
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5173[22m/[39m
+[2m  [32m➜[39m  [1mNetwork[22m[2m: use [22m[1m--host[22m[2m to expose[22m
+[2m6:35:33 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.jsx, /src/index.css, /src/components/PrintsFeed.jsx, /src/components/Dashboard.jsx, /src/components/Watchlist.jsx, /src/components/Screener.jsx, /src/components/TickerDetail.jsx, /src/components/FileDropZone.jsx[22m
+[2m6:35:39 PM[22m [36m[1m[vite][22m[39m [32mvite.config.js changed, restarting server...[39m
+[2m6:35:39 PM[22m [36m[1m[vite][22m[39m server restarted.
+
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5173[22m/[39m
+  [32m➜[39m  [1mNetwork[22m: [36mhttp://10.5.0.2:[1m5173[22m/[39m
+  [32m➜[39m  [1mNetwork[22m: [36mhttp://100.98.72.8:[1m5173[22m/[39m
+  [32m➜[39m  [1mNetwork[22m: [36mhttp://192.168.4.23:[1m5173[22m/[39m
+[2m4:21:42 PM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/tickers/prints?days=7&limit=100[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+[2m4:48:42 PM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/tickers/prints?days=7&limit=100[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+[2m8:59:53 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/TickerDetail.jsx, /src/index.css[22m
+[2m9:00:03 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/TickerDetail.jsx, /src/index.css[22m
+[2m9:00:10 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/TickerDetail.jsx, /src/index.css[22m
+[2m9:00:31 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/TickerDetail.jsx, /src/index.css[22m
+[2m2:56:13 PM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/tickers/prints?days=7&limit=100[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+m9:00:10 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/TickerDetail.jsx, /src/index.css[22m
+[2m9:00:31 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/TickerDetail.jsx, /src/index.css[22m
+[2m10:30:11 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/tickers/signals?limit=200[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+[2m10:30:11 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/tickers/prints?days=7&limit=100[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+[2m10:30:11 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/watchlist/[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+[2m10:30:11 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/tickers/signals?limit=200[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+[2m10:30:11 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/tickers/prints?days=7&limit=100[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+[2m10:30:11 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/watchlist/[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+[2m10:31:11 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/tickers/prints?days=7&limit=100[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+[2m10:32:11 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/tickers/prints?days=7&limit=100[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+[2m10:33:11 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/tickers/prints?days=7&limit=100[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+[2m10:34:11 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/tickers/prints?days=7&limit=100[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+[2m10:35:11 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/tickers/prints?days=7&limit=100[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+[2m10:36:11 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/tickers/prints?days=7&limit=100[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+[2m10:37:11 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/tickers/prints?days=7&limit=100[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+[2m10:38:11 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/tickers/prints?days=7&limit=100[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+[2m10:39:11 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/tickers/prints?days=7&limit=100[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+[2m10:40:11 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/tickers/prints?days=7&limit=100[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+[2m10:41:11 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/tickers/prints?days=7&limit=100[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+[2m10:42:11 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/tickers/prints?days=7&limit=100[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+[2m10:43:11 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/tickers/prints?days=7&limit=100[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+[2m10:44:11 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/tickers/prints?days=7&limit=100[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+[2m10:45:11 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/tickers/prints?days=7&limit=100[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+[2m10:46:11 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/tickers/prints?days=7&limit=100[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+[2m10:47:11 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/tickers/prints?days=7&limit=100[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+[2m10:48:11 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/tickers/prints?days=7&limit=100[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+[2m10:49:11 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/tickers/prints?days=7&limit=100[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+[2m10:50:11 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/tickers/prints?days=7&limit=100[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+[2m10:51:11 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/tickers/prints?days=7&limit=100[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+[2m10:52:11 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/tickers/prints?days=7&limit=100[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+[2m10:53:12 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/tickers/prints?days=7&limit=100[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+[2m10:54:11 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/tickers/prints?days=7&limit=100[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+[2m10:55:11 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/tickers/prints?days=7&limit=100[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+[2m10:56:11 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/tickers/prints?days=7&limit=100[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+[2m10:57:11 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/tickers/prints?days=7&limit=100[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+[2m10:58:01 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/tickers/signals?limit=200[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+[2m10:58:01 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/tickers/prints?days=7&limit=100[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+[2m10:58:01 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/watchlist/[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+[2m10:58:01 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/tickers/signals?limit=200[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+[2m10:58:01 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/tickers/prints?days=7&limit=100[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
+[2m10:58:01 AM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/watchlist/[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1134:18)
+    at afterConnectMultiple (node:net:1715:7)
