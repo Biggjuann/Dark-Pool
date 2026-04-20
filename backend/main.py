@@ -11,8 +11,9 @@ Startup behaviour
      - Every weekday 16:30 ET — price refresh for watchlist tickers
 
 FINRA data is ingested manually via the file-upload workflow:
-  POST /api/ingest/upload   — upload a .txt file from the FINRA download page
-  POST /api/ingest/fetch    — auto-download via Playwright (local machine only)
+  POST /api/ingest/upload       — Reg SHO weekly .txt file
+  POST /api/ingest/ats/upload   — FINRA ATS weekly .csv file (preferred)
+  POST /api/ingest/fetch        — auto-download via Playwright (local machine only)
 
 CORS
 ----
@@ -119,6 +120,7 @@ app.include_router(recommendations_router.router)
 from ingest.ats import router as ats_router
 app.include_router(ats_router)
 
+
 # ---------------------------------------------------------------------------
 # Health endpoint
 # ---------------------------------------------------------------------------
@@ -133,3 +135,20 @@ def health_check():
     signals endpoint and verify it returns rows.
     """
     return {"status": "ok"}
+
+
+# ---------------------------------------------------------------------------
+# Manual scan trigger
+# ---------------------------------------------------------------------------
+
+@app.post("/api/signals/rescan", tags=["meta"])
+def api_rescan():
+    """
+    Run the weekly scoring pipeline on demand.
+
+    Useful after a fresh ATS or Reg SHO upload — rather than waiting for
+    the Monday 06:00 ET cron, this fires the same pipeline immediately.
+    """
+    from scheduler import run_full_pipeline
+    signals = run_full_pipeline()
+    return {"ok": True, "signals_generated": len(signals)}
