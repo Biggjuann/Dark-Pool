@@ -116,6 +116,8 @@ app.include_router(ingest_router.router)
 app.include_router(sentiment_router.router)
 app.include_router(recommendations_router.router)
 
+from ingest.ats import router as ats_router
+app.include_router(ats_router)
 
 # ---------------------------------------------------------------------------
 # Health endpoint
