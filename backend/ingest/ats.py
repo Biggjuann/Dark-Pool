@@ -11,12 +11,16 @@ The file is pipe-delimited with columns:
   marketParticipantName | MPID | totalWeeklyShareQuantity |
   totalWeeklyTradeCount | lastUpdateDate
 
-The download file does NOT include the week ending date — you select it on
-the FINRA site when downloading. This endpoint accepts week_ending as a
-form field; if omitted it tries to parse YYYYMMDD from the filename.
+The week ending date is chosen by the user when downloading; we accept it
+as a form field or infer it from the filename (YYYYMMDD).
+
+Robust to files that were saved via browser "Save As", which often wrap
+the pipe-delimited text in HTML tags — we locate the header line and parse
+from there regardless of surrounding wrapping.
 """
 from __future__ import annotations
 
+import io
 import logging
 import re
 import shutil
@@ -33,6 +37,7 @@ UPLOAD_DIR = Path("data/uploads/ats")
 TICKER_COL = "issueSymbolIdentifier"
 VOLUME_COL = "totalWeeklyShareQuantity"
 TRADES_COL = "totalWeeklyTradeCount"
+HEADER_MARK = "tierDescription"
 REQUIRED = {TICKER_COL, VOLUME_COL, TRADES_COL}
 
 _DATE_RE = re.compile(r"(20\d{2})[-_]?(\d{2})[-_]?(\d{2})")
@@ -46,18 +51,47 @@ def _infer_week_ending(explicit: str | None, filename: str) -> date:
         return date(int(m.group(1)), int(m.group(2)), int(m.group(3)))
     raise HTTPException(
         400,
-        "Could not determine week_ending. Pass ?week_ending=YYYY-MM-DD "
+        "Could not determine week_ending. Pass week_ending=YYYY-MM-DD "
         "or ensure the filename contains a YYYYMMDD date.",
     )
+
+
+def _extract_pipe_text(filepath: Path) -> str:
+    """Find the pipe-delimited block inside the file, stripping any HTML wrapper."""
+    raw = filepath.read_text(errors="replace")
+    lines = raw.splitlines()
+
+    start = next(
+        (i for i, ln in enumerate(lines) if ln.lstrip().startswith(HEADER_MARK)),
+        -1,
+    )
+    if start < 0:
+        raise ValueError(
+            f"ATS header row not found. Expected a line starting with '{HEADER_MARK}'. "
+            "File may not be the FINRA ATS download."
+        )
+
+    end = len(lines)
+    for i in range(start + 1, len(lines)):
+        stripped = lines[i].lstrip()
+        if stripped.startswith("<") or stripped.startswith("}") or stripped.startswith("]"):
+            end = i
+            break
+    return "\n".join(lines[start:end])
 
 
 def _parse_ats(filepath: Path, week_ending: date):
     import pandas as pd
 
-    df = pd.read_csv(filepath, sep="|", dtype=str)
+    text = _extract_pipe_text(filepath)
+    df = pd.read_csv(io.StringIO(text), sep="|", dtype=str, engine="python")
+
     missing = REQUIRED - set(df.columns)
     if missing:
-        raise ValueError(f"ATS file missing required columns: {sorted(missing)}")
+        raise ValueError(
+            f"ATS file missing required columns: {sorted(missing)}. "
+            f"Found: {list(df.columns)}"
+        )
 
     df = df[[TICKER_COL, VOLUME_COL, TRADES_COL]].copy()
     df.columns = ["ticker", "dp_volume", "dp_trade_count"]
@@ -121,8 +155,6 @@ async def upload_ats(
         agg = _parse_ats(dest, week_end)
     except ValueError as e:
         raise HTTPException(400, str(e))
-    except Exception as e:
-        raise HTTPException(400, f"parse failed: {e}")
 
     if agg.empty:
         return {"ok": True, "rows": 0, "week_ending": week_end.isoformat(), "note": "no rows after validation"}
