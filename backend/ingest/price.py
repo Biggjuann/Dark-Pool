@@ -139,24 +139,26 @@ def _yf_data_to_rows(yf_data: dict[str, pd.DataFrame]) -> list[dict]:
 
     Each dict has keys: ticker, snapshot_date, open, high, low, close, volume.
     NaN values are converted to None so SQLAlchemy writes NULL.
+    Float columns are cast to native Python floats so psycopg2 on Postgres
+    doesn't misinterpret numpy repr strings ("np.float64(...)") as SQL.
     """
     rows: list[dict] = []
     for ticker, df in yf_data.items():
         for idx_date, row in df.iterrows():
-            # idx_date is already a datetime.date after _fetch_yf_batch normalisation,
-            # but guard against edge cases in direct callers.
             if isinstance(idx_date, datetime):
                 snap_date = idx_date.date()
             elif hasattr(idx_date, "date") and callable(idx_date.date):
                 snap_date = idx_date.date()
             else:
-                snap_date = idx_date  # already date
+                snap_date = idx_date
 
             def _val(col: str):
                 v = row.get(col)
-                return None if v is None or pd.isna(v) else v
+                if v is None or pd.isna(v):
+                    return None
+                return float(v)
 
-            vol = _val("volume")
+            vol = row.get("volume")
             rows.append({
                 "ticker":        ticker,
                 "snapshot_date": snap_date,
@@ -164,9 +166,10 @@ def _yf_data_to_rows(yf_data: dict[str, pd.DataFrame]) -> list[dict]:
                 "high":          _val("high"),
                 "low":           _val("low"),
                 "close":         _val("close"),
-                "volume":        int(vol) if vol is not None else None,
+                "volume":        int(vol) if vol is not None and not pd.isna(vol) else None,
             })
     return rows
+
 
 
 # ---------------------------------------------------------------------------
