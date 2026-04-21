@@ -86,7 +86,7 @@ def _upsert(db, rows) -> int:
             existing.dp_volume = dp_vol
             existing.dp_trade_count = int(r["dp_trade_count"])
             existing.total_volume = dp_vol
-            existing.dp_pct = 100.0
+            existing.dp_pct = 60.0
         else:
             db.add(DarkPoolPrint(
                 ticker=r["ticker"],
@@ -94,7 +94,7 @@ def _upsert(db, rows) -> int:
                 dp_volume=dp_vol,
                 dp_trade_count=int(r["dp_trade_count"]),
                 total_volume=dp_vol,
-                dp_pct=100.0,
+                dp_pct=60.0,
             ))
         n += 1
     db.commit()
